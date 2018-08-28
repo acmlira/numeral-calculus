@@ -1,5 +1,5 @@
-from Bissection import Bissection
-from FalsePosition import FalsePosition
+from Bissection import bissection
+from FalsePosition import false_position
 
-interval = FalsePosition(("(x**3) - (9*x) + 3"), 0, 1, 0.005, 20)
-print(interval.false_position())
+
+false_position(("(x**2) - 1"), 0.5, 1.5, 0.005, 20)
