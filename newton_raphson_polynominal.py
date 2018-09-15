@@ -55,11 +55,10 @@ def newton_raphson_polynominal(n, a, x, epsilon, iterMax=20):
         if abs(b[0]) <= epsilon:
             return(False, x)
         if abs(c[0]) == 0 :
-            print("Erro! c = 0, divisão por zero")
+            
             return (True, None)
         
         x = x - b[0]/c[0]
         k += 1
 
-    print("Erro! Número máximo de iterações atingido")
     return(True, x)
