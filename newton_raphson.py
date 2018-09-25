@@ -7,6 +7,7 @@
 #   Algoritmo do Método Numérico: Newton-Raphson
 #
 #   Base environment: Anaconda 3 (Python 3.6)
+#
 def newton_raphson(str_of_f, str_of_flin, x0, epsilon, iterMax=20):  
     f = lambda x: eval(str_of_f)
     flin = lambda x: eval(str_of_flin)

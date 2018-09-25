@@ -7,6 +7,7 @@
 #   Algoritmo do Método Numérico: Secante
 #
 #   Base environment: Anaconda 3 (Python 3.6)
+#
 def secant(str_of_f, x0, x1, epsilon, iterMax=100):
     f = lambda x: eval(str_of_f)
 

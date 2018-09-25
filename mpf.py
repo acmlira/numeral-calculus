@@ -7,6 +7,7 @@
 #   Algoritmo do Método Numérico: Método da Posição Fixa
 #
 #   Base environment: Anaconda 3 (Python 3.6)
+#
 def mpf(str_of_f, str_of_fi, x0, epsilon, iterMax=20):
     f = lambda x: eval(str_of_f)
     fi = lambda x: eval(str_of_fi)
