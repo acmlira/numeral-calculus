@@ -16,7 +16,10 @@ def secant(str_of_f, x0, x1, epsilon, iterMax=100):
     if abs(f(x1)) <= epsilon:                   # Teste para saber se x0 já é a raiz (usa abs para conter os valores negativos)
         return (False, x1)
 
+    # Aqui basicamente o que muda é a obtenção da f'(x) que é aproximada para uma reta secante
     x2 = x1 - (f(x1)/((f(x1) - f(x0)) / (x1 - x0)))
+
+    # Printa cabeçalho do debug 
     print("--------------------------------------------------------------------------------------------------------------------")
     print("k\tx2\t\tf(x2)")
     print("--------------------------------------------------------------------------------------------------------------------")

@@ -8,6 +8,8 @@
 #
 #   Base environment: Anaconda 3 (Python 3.6)
 #
+#   TAG: Refactor
+#
 def false_position(str_of_f, a, b, epsilon, k_max = 20):
     f = lambda x: eval(str_of_f)
 
@@ -23,18 +25,24 @@ def false_position(str_of_f, a, b, epsilon, k_max = 20):
     print("--------------------------------------------------------------------------------------------------------------------")
     print("-\t%e\t%e\t%e\t%e\t%e\t%e\t%e" % (a, f(a), b, f(b), x, f(x), b - a))
 
-    if abs(b - a) < epsilon:
+    # Testa se o intervalo é suficientemente pequeno a ponto de ser menor do que epsilon
+    if abs(b - a) <= epsilon:
         return (True, x)
+    # Testa se x já é a raiz 
     if abs(f(x)) <= epsilon:
         return (True, x)
 
+    # Começa as iterações
     k = 0
     while k < k_max:
+        # Testa se a x é a raiz desejada
         if abs(f(x)) <= epsilon:
             break
         else:
+            # Testa se não há mudança de sinal, para a_k+1 = x_k
             if (f(x) * f(a)) > 0:
                 a = x
+            # Faz o inverso, então, b_k+1 = x_k
             else:
                 b = x
         
@@ -46,7 +54,7 @@ def false_position(str_of_f, a, b, epsilon, k_max = 20):
         print("%i\t%e\t%e\t%e\t%e\t%e\t%e\t%e" % (k, a, f(a), b, f(b), x, f(x), b - a))
 
         # Testa se o intervalo já está suficientemente próximo ao valor da aproximação
-        if abs(b - a) < epsilon:
+        if abs(b - a) <= epsilon:
             break
     
     # Finaliza o método  

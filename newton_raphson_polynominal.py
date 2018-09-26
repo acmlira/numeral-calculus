@@ -8,6 +8,8 @@
 #
 #   Base environment: Anaconda 3 (Python 3.6)
 #
+#   Obs: Calcula f(x)/f'(x) através do método de Horner
+#
 def newton_raphson_polynominal(n, a, x, epsilon, iterMax=20):      
     n = len(a)-1
     print("k\t x\t\t p(x)")

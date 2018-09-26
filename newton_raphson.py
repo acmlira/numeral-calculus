@@ -16,19 +16,27 @@ def newton_raphson(str_of_f, str_of_flin, x0, epsilon, iterMax=20):
     if abs(f(x0)) <= epsilon:                   # Teste para saber se x0 já é a raiz (usa abs para conter os valores negativos)
         return (False, x0)                      # Retorna uma tupla com False (por que o método falhou) e com a raiz
     
+    # Printa cabeçalho do debug
     print("--------------------------------------------------------------------------------------------------------------------")
     print("k\tx1\t\tf(x1)\t\tflin(x1)")
     print("--------------------------------------------------------------------------------------------------------------------")
     print("-\t%e\t%e\t%e\t-" % (x0, f(x0), flin(x0)))
     
     k = 0                                       # Inicia as iterações                                       
-
     while k < iterMax:                          # Loop condicionado
         k += 1
+
+        # Próximo x é calculado a partir da derivada de f(x)
         x1 = x0 - (f(x0)/flin(x0))
+        
+        # Printa linha de debug
         print("%i\t%e\t%e\t%e" % (k, x1, f(x1), flin(x1)))
+
+        # Testa se x é a raiz
         if abs(f(x1)) <= epsilon:
             return (True, x1)
+        
+        # Prepara a próxima iteração
         x0 = x1
         
     return (False, x0) 

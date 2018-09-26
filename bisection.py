@@ -8,7 +8,7 @@
 #
 #   Base environment: Anaconda 3 (Python 3.6)
 #
-#   TAG: ToRefactor
+#   TAG: Refactor
 #
 def bisection(str_of_f, a, b, epsilon, k_max = 20):
     f = lambda x: eval(str_of_f)
@@ -27,7 +27,7 @@ def bisection(str_of_f, a, b, epsilon, k_max = 20):
     print("-\t%e\t%e\t%e\t%e\t%e\t%e\t%e" % (a, f(a), b, f(b), x, f(x), b - a))
 
     # Testa se o intervalo já está suficientemente próximo ao valor da aproximação
-    if abs(b - a) < epsilon:
+    if abs(b - a) <= epsilon:
         return (True, x)
 
     # Inicia as iterações
@@ -48,7 +48,7 @@ def bisection(str_of_f, a, b, epsilon, k_max = 20):
         print("%i\t%e\t%e\t%e\t%e\t%e\t%e\t%e" % (k, a, f(a), b, f(b), x, f(x), b - a))
 
         # Testa se o intervalo já está suficientemente próximo ao valor da aproximação
-        if abs(b - a) < epsilon:
+        if abs(b - a) <= epsilon:
             break
 
     # Finaliza o método
