@@ -52,7 +52,6 @@ def bisection(str_of_f, a, b, epsilon, k_max = 20):
             break
 
     # Finaliza o método
-    print("--------------------------------------------------------------------------------------------------------------------")
     return(True, x)
 
 # Chama o método    

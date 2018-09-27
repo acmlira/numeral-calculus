@@ -20,6 +20,7 @@ def false_position(str_of_f, a, b, epsilon, k_max = 20):
     # Prepara a primeira iteração por meio de uma reta secante
     x = (a*f(b) - b*f(a)) / (f(b) - f(a))
     
+    # Printa cabeçalho do debug
     print("--------------------------------------------------------------------------------------------------------------------")
     print("k\ta\t\tf(a)\t\tb\t\tf(b)\t\tx\t\tf(x)\t\tintervX")
     print("--------------------------------------------------------------------------------------------------------------------")
@@ -58,7 +59,6 @@ def false_position(str_of_f, a, b, epsilon, k_max = 20):
             break
     
     # Finaliza o método  
-    print("--------------------------------------------------------------------------------------------------------------------")
     return(True, x)
 
 # Chama o método      

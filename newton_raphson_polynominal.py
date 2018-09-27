@@ -19,6 +19,7 @@ def newton_raphson_polynominal(n, a, x, epsilon, iterMax=20):
         b = [1.0] * len(a)
         c = [1.0] * n
 
+        # Prepara a lista de b e a lista c
         i = n - 1
         while i != 0:
             b[i] = a[i] + b[i+1]*x
@@ -26,16 +27,18 @@ def newton_raphson_polynominal(n, a, x, epsilon, iterMax=20):
             i -= 1
 
         b[0] = a[0] + b[1]*x
-   
+
+        # Printa linha de debug
+        k += 1
         print("%d\t %e\t %e\t" %(k, x, b[0]))
 
         if abs(b[0]) <= epsilon:
             return(False, x)
         if abs(c[0]) == 0 :
-            
             return (True, None)
         
+        # Prepara próxima iteração
         x = x - b[0]/c[0]
-        k += 1
-
+        
+    # Finaliza o método
     return(True, x)

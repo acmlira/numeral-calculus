@@ -7,7 +7,7 @@ Hi! I'm [Allan](https://github.com/acmlira) This repository aims to assist me in
 These are the life goals of this repository:
  - [x] Born (i don't remember)
  - [x] Implement the codes for the first test (bisection, false position, m.p.f., Newton-Raphson, secant and finally polynomial Newton-Raphson)
- - [ ] Refactor these codes :triumph:
+ - [x] Refactor these codes :triumph:
  - [ ] Implement the codes for the second test
  - [ ] Refactor these codes :triumph:
  - [ ] :skull: (sounds like deprecated)
