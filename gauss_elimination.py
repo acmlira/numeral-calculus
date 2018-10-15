@@ -1,3 +1,4 @@
+from functions import pivot, retroativas
 #
 #   Disciplina de Métodos Numéricos (2018.2 UFC)
 #
@@ -10,27 +11,11 @@
 #
 #   TAG: To comment 
 #
-A = [[  1,  2,  3],
-     [  3,  1,  0],
-     [  0,  3,  4]]
+A = [[  3,  2,  4],
+     [  1,  1,  2],
+     [  4,  3, -2]]
 
-b =  [  3,  4,  3]
-
-def pivot(i, A, b):
-    n = len(A)
-    p = 0
-
-    for r in range(i, n):
-        if abs(A[r][i]) > abs(A[i][i]):
-            p += 1
-            for t in range(n):
-                g       = A[i][t]
-                A[i][t] = A[r][t]
-                A[r][t] = g
-            f    = b[i]
-            b[i] = b[r]
-            b[r] = f
-    return p
+b =  [  1,  2,  3]
 
 def gauss_elimination(A, b, pivoted):
     n = len(A)
@@ -47,14 +32,10 @@ def gauss_elimination(A, b, pivoted):
         for j in range (i+1, n):
             m = A[j][i]/A[i][i]
             for k in range(n):
-                A[j][k] = A[j][k] - m * A[i][k]
-            b[j] = b[j] - m * b[i]
+                A[j][k] = round(A[j][k] - m * A[i][k], 3)
+            b[j] = round(b[j] - m * b[i], 2)
 
-    x = n*[0]
-    for i in range(n-1, -1, -1):
-        s = sum([A[i][j]*x[j] for j in range(i+1,n)])
-        x[i] = (b[i] - s)/A[i][i]
-
-    return (A, x, det, p)
+    x = retroativas(A, b)
+    return (A, x, b, det, p)
 
 print(gauss_elimination(A, b, True))
