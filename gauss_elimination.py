@@ -1,4 +1,4 @@
-from functions import pivot, retroativas
+from functions import pivoting, retroactive
 #
 #   Disciplina de Métodos Numéricos (2018.2 UFC)
 #
@@ -26,7 +26,7 @@ def gauss_elimination(A, b, pivoted):
         det *= A[i][i]
 
         if(pivoted):
-            p = pivot(i, A, b)
+            p = pivoting(i, A, b)
             det *= ((-1) ** p)
 
         for j in range (i+1, n):
@@ -35,7 +35,7 @@ def gauss_elimination(A, b, pivoted):
                 A[j][k] = round(A[j][k] - m * A[i][k], 3)
             b[j] = round(b[j] - m * b[i], 2)
 
-    x = retroativas(A, b)
+    x = retroactive(A, b)
     return (A, x, b, det, p)
 
 print(gauss_elimination(A, b, True))

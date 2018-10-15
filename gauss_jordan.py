@@ -1,20 +1,22 @@
-from functions import pivot, identity
+from functions import pivoting, identity
 
 def gauss_jordan(A, b, pivoted):
     n = len(A)
     det = 1
     p = 0
+    I = identity(n)
 
     for i in range(0, n):
         det *= A[i][i]
 
         if(pivoted):
-            p = pivot(i, A, b)
+            p = pivoting(i, A, b)
             det *= ((-1) ** p)
 
         for j in range (i+1, n):
             m = A[j][i]/A[i][i]
             for k in range(n):
+                I[j][k] = I[j][k] - m * A[i][k]
                 A[j][k] = A[j][k] - m * A[i][k]
             b[j] = b[j] - m * b[i]
 
@@ -22,6 +24,7 @@ def gauss_jordan(A, b, pivoted):
         for j in range (i-1, -1, -1):
             m = A[j][i]/A[i][i]
             for k in range(0, n):
+                I[j][k] = I[j][k] - m * A[i][k]
                 A[j][k] = A[j][k] - m * A[i][k]
             b[j] = b[j] - m * b[i]
 
@@ -30,9 +33,10 @@ def gauss_jordan(A, b, pivoted):
             if i == j:
                 b[i] = round(b[i]/A[i][j], 2)
                 for k in range(0, n):
-                    A[i][k] = round(A[i][k]/A[i][j], 2)
+                    A[i][k] = A[i][k]/A[i][j]
+                    I[i][k] = I[i][k]/A[i][j]
 
-    return (A, b, det, p)
+    return (A, b, det, p, I)
 
 A = [[  3,  2,  4],
      [  1,  1,  2],
@@ -40,4 +44,6 @@ A = [[  3,  2,  4],
 
 b =  [  1,  2,  3]
 
-print(gauss_jordan(A, b, True))
+(A, b, det, p, I) = gauss_jordan(A, b, False)
+
+print(I)
