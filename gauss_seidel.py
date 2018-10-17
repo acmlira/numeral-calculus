@@ -16,26 +16,28 @@ def gauss_seidel(A, b, x, epsilon = 0.001, k_max = 50):
             x[i] = (b[i] - s)/A[i][i]
 
         # Faltando o critério de parada
-        # d = line_criterion(v, x)
+        d = line_criterion(x, v)
         # print(d)
-        # if d <= epsilon:
-        #      return v
-       
-        x = v
+        if d <= epsilon:
+             return x
+
+
+        # x = v
         k += 1
-        print(k, " - ", v)
+        print(k, " - ", x)
     return v
 
-A = [[  5,  1,  1],
-     [  3,  4,  1],
-     [  3,  3,  6]]
 
-b =  [  5,  6,  0]
+A = [[  4, -1,  0,  0],
+     [ -1,  4, -1,  0],
+     [  0, -1,  4, -1],
+     [  0,  0, -1,  4]]
 
-x =  [  0,  0,  0]
+b =  [  1,  1,  1,  1]
 
-epsilon = 0.05
+x =  [  0,  0,  0,  0]
 
-k_max = 4
+epsilon = 0.001
 
+k_max = 20
 gauss_seidel(A, b, x, epsilon, k_max)

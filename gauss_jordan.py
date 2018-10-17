@@ -38,13 +38,12 @@ def gauss_jordan(A, b, pivoted):
 
     return (A, b, det, p, I)
 
-A = [[  2,  2,  1,  1],
-     [  1, -1,  2, -1],
-     [  3,  2, -3, -2],
-     [  4,  3,  2,  1]]
+A = [[  3, -4,  1],
+     [  1,  2,  2],
+     [  4,  0, -3]]
 
-b =  [  7,  1,  4, 12]
+b =  [  9,  3, -2]
 
-(A, b, det, p, I) = gauss_jordan(A, b, True)
+(A, b, det, p, I) = gauss_jordan(A, b, False)
 
 print(A ,"\n\n", b, "\n\n", det)

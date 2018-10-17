@@ -11,13 +11,6 @@ from functions import pivoting, retroactive
 #
 #   TAG: To comment 
 #
-A = [[  2,  2,  1,  1],
-     [  1, -1,  2, -1],
-     [  3,  2, -3, -2],
-     [  4,  3,  2,  1]]
-
-b =  [  7,  1,  4, 12]
-
 def gauss_elimination(A, b, pivoted):
     n = len(A)
     det = 1
@@ -38,6 +31,12 @@ def gauss_elimination(A, b, pivoted):
 
     x = retroactive(A, b)
     return (A, x, b, det, p)
+
+A = [[  3, -4,  1],
+     [  1,  2,  2],
+     [  4,  0, -3]]
+
+b =  [  9,  3, -2]
 
 (A, x, b, det, p) = gauss_elimination(A, b, False)
 

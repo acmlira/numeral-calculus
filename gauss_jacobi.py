@@ -15,26 +15,29 @@ def gauss_jacobi(A, b, x, epsilon = 0.001, k_max = 50):
             v[i] = (b[i] - s)/A[i][i]
 
         # Faltando o critério de parada
-        # d = line_criterion(v, x)
+        d = line_criterion(v, x)
         # print(d)
-        # if d <= epsilon:
-        #      return v
+        if d <= epsilon:
+             return v
        
-        x = v
+        x = v.copy()
         k += 1
         print(k, " - ", v)
     return v
 
-A = [[ 10,  2,  1],
-     [  1,  5,  1],
-     [  2,  3, 10]]
+A = [[  4, -1,  0,  0],
+     [ -1,  4, -1,  0],
+     [  0, -1,  4, -1],
+     [  0,  0, -1,  4]]
 
-b =  [  7, -8,  6]
+b =  [  1,  1,  1,  1]
 
-x =  [0.7,-1.6,0.6]
+x =  [  0,  0,  0,  0]
 
-epsilon = 0.05
+epsilon = 0.001
 
-k_max = 4
+k_max = 20
 
 gauss_jacobi(A, b, x, epsilon, k_max)
+
+print(x)

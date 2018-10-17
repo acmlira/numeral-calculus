@@ -20,7 +20,7 @@ def pivoting(i, A, b):
             f    = b[i]
             b[i] = b[r]
             b[r] = f
-    return p
+    return (p, A, b)
 
 def retroactive(A, b):
     n = len(A)
@@ -64,5 +64,13 @@ def line_criterion(v, x):
 
     return M/m
 
-def sassenfeld(parameter_list):
-    pass
+def sassenfeld(B):
+    n = len(B)
+    M = 0
+
+    for i in range(0, n):
+        if(abs(B[i]) > M):
+            M = abs(B[i])
+    
+    return B[i]
+    
