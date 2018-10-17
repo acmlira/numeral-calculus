@@ -1,9 +1,17 @@
-from functions import identity, successive, retroactive
+from functions import identity, successive, retroactive, pivoting
 
-def lu(A):
+def lu(A, b, pivoted):
     L = identity(len(A))
     n = len(A)
+    det = 1
+    
+
     for i in range(0,n):
+        if(pivoted):
+            (p, A, b) = pivoting(i, A, b) 
+            det *= ((-1) ** p)
+
+        det *= A[i][i]
         for j in range(i+1,n):
             m = A[j][i]/A[i][i]
             L[j][i] = m
@@ -12,15 +20,16 @@ def lu(A):
     U = A
     return (L, U)
 
-A = [[  3,  2,  4],
-     [  1,  1,  2],
-     [  4,  3, -2]]
+A = [[  2,  2,  1,  1],
+     [  1, -1,  2, -1],
+     [  3,  2, -3, -2],
+     [  4,  3,  2,  1]]
 
-(L, U) = lu(A)
+b =  [  7,  1,  4, 12]
 
-b =  [  1,  2,  3]
+(L, U) = lu(A, b, True)
 
 y = successive(L, b)
 x = retroactive(U, y)
 
-print(x, y)
+print(x, "\n\n", L, "\n\n", U)
