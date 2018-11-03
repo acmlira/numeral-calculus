@@ -13,9 +13,9 @@ def gauss_jordan(A, b, pivoted):
 
         det *= A[i][i]
 
-        for j in range (0, n):
+        for j in range(n):
             m = A[j][i]/A[i][i]
-            for k in range(0, n):
+            for k in range(n):
                 if j != i:
                     I[j][k] = I[j][k] - m * I[i][k]
                     A[j][k] = A[j][k] - m * A[i][k]
@@ -32,8 +32,13 @@ def gauss_jordan(A, b, pivoted):
     for i in  range(0, n):
         b[i] = b[i]/A[i][i]
         for j in range(0, n):
-            I[i][j] = I[i][j]/A[i][i]
-            A[i][j] = A[i][j]/A[i][i]
+            if j != i:
+                I[i][j] = I[i][j]/A[i][i]
+                A[i][j] = A[i][j]/A[i][i]
+        for j in range(0, n):
+            if j == i:
+                I[i][j] = I[i][j]/A[i][i]
+                A[i][j] = A[i][j]/A[i][i]
 
 
     return (A, b, det, p, I)
