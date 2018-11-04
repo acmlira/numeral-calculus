@@ -26,17 +26,17 @@ def gauss_elimination(A, b, pivoted):
         for j in range (i+1, n):
             m = A[j][i]/A[i][i]
             for k in range(n):
-                A[j][k] = round(A[j][k] - m * A[i][k], 3)
-            b[j] = round(b[j] - m * b[i], 2)
+                A[j][k] = A[j][k] - m * A[i][k]
+            b[j] = b[j] - m * b[i]
 
     x = retroactive(A, b)
     return (A, x, b, det, p)
 
-A = [[  3, -4,  1],
-     [  1,  2,  2],
-     [  4,  0, -3]]
+A = [[  3,  2,  4],
+     [  1,  1,  2],
+     [  4,  3, -2]]
 
-b =  [  9,  3, -2]
+b =  [  1,  2,  3]
 
 (A, x, b, det, p) = gauss_elimination(A, b, False)
 
