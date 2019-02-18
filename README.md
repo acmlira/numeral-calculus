@@ -8,8 +8,8 @@ These are the life goals of this repository:
  - [x] Born (i don't remember)
  - [x] Implement the codes for the first test (bisection, false position, m.p.f., Newton-Raphson, secant and finally polynomial Newton-Raphson)
  - [x] Refactor these codes :triumph:
- - [S] Implement the codes for the second test
- - [S] Refactor these codes :triumph:
+ - [ ] Implement the codes for the second test
+ - [ ] Refactor these codes :triumph:
  - [X] :skull: (sounds like discontinued)
 
 [See more...](https://github.com/acmlira/pic16f628a/wiki)
